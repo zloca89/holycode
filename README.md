@@ -40,3 +40,7 @@ Clicking on the resourse in the table new page is opened with detail of the choo
 ## Test
 
 I didn't have time to implement integreation or end-to-end tests. As I saw, when I created components with Angular CLI, test file is added automatically with one default test for creation of the component. 
+
+## Ngrx
+
+The best option to implement the solution is using state managment system like Ngrx. I didn't have time to invest in that part
