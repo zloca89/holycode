@@ -1,0 +1,30 @@
+<div class="resourse-section" *ngIf="isVisible()">
+  <div class="table-tite">Houses</div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Founded</th>
+        <th scope="col">Region</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let house of houses | paginate
+      : {id:'houses', itemsPerPage: 10, currentPage: currentPage, totalItems: 444 }"
+        (click)="viewDetail(house)"
+      >
+        <td>{{ house.name }}</td>
+        <td>{{ house.founded }}</td>
+        <td>{{ house.region }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="page" style="text-align: center">
+    <pagination-controls
+      class="my-pagination"
+      (pageChange)="getPage($event)"
+      id="houses"
+    ></pagination-controls>
+  </div>
+</div>

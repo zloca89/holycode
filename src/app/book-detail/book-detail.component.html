@@ -1,0 +1,67 @@
+<div class="resourse-detail">
+  <div class="container">
+    <div class="row" style="text-align: left" *ngIf="book">
+      <div class="col-md-12">
+        <div class="resourse">
+          <div class="resourse-header">
+            <p *ngIf="book.name && book.name.length > 0">
+              {{ book.name | uppercase }}
+            </p>
+          </div>
+          <div class="resourse-body">
+            <div class="resourse-text">
+              <p *ngIf="book.authors && book.authors.length > 0">
+                Authors:
+                <span
+                  *ngFor="
+                    let item of book.authors;
+                    let first = first;
+                    let last = last
+                  "
+                >
+                  <span *ngIf="item; else elseblock"
+                    >{{ item }}{{ last ? " " : " ," }}
+                  </span>
+                  <ng-template #elseblock> -- </ng-template>
+                </span>
+              </p>
+
+              <p *ngIf="book.country && book.country.length > 0">
+                Country:
+                {{ book.country }}
+              </p>
+
+              <p *ngIf="book.isbn && book.isbn.length > 0">
+                ISBN: {{ book.isbn }}
+              </p>
+
+              <p *ngIf="book.mediaType && book.mediaType.length > 0">
+                Media Type:
+                {{ book.mediaType }}
+              </p>
+
+              <p *ngIf="book.numberOfPages && book.numberOfPages">
+                Number of pages:
+                {{ book.numberOfPages }}
+              </p>
+
+              <p *ngIf="book.characters && book.publisher.length > 0">
+                Publisher:
+                {{ book.publisher }}
+              </p>
+
+              <p *ngIf="book.characters && book.released.length > 0">
+                Released: {{ book.released | date }}
+              </p>
+            </div>
+            <div class="row">
+              <div class="home-link">
+                <a class="btn" [routerLink]="['/']"> Home </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

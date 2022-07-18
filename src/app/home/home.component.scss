@@ -1,0 +1,15 @@
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  align-items: center;
+}
+.filter-search-section {
+  display: flex;
+  align-items: center;
+}
+
+.logout-section {
+  margin: 0;
+  cursor: pointer;
+}

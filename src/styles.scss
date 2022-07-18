@@ -1,1 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css");
+
+.resourse-section {
+  margin: 40px 0;
+}
+.table-tite {
+  font-size: 25px;
+  padding-bottom: 20px;
+}
+
+.resourse-detail {
+  margin-top: 30px;
+  p {
+    border-bottom: 0.5px solid grey;
+  }
+}
+
+.table {
+  tr {
+    cursor: pointer;
+  }
+}
+
+.error-message,
+.invalid-feedback {
+  color: red;
+}
+
+.container {
+  margin-top: 20px;
+}
+
+.resourse-header {
+  font-size: 25px;
+  font-weight: bold;
+  padding-bottom: 20px;
+  p {
+    border: none;
+  }
+}

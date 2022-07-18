@@ -1,0 +1,31 @@
+<div class="home-section container">
+  <div class="header-section">
+    <div class="filter-search-section">
+      <app-filters
+        [filters]="filters"
+        (handleFilter)="handleFilter($event)"
+      ></app-filters>
+      <app-search (search)="search($event)"></app-search>
+    </div>
+    <div class="logout-section" *ngIf="loggedInUser">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" (click)="logout()">Logout</a>
+      </div>
+    </div>
+  </div>
+  <app-books
+    (handlePagination)="handlePagination($event)"
+    [books]="books"
+    [filters]="filters"
+  ></app-books>
+  <app-houses
+    (handlePagination)="handlePagination($event)"
+    [houses]="houses"
+    [filters]="filters"
+  ></app-houses>
+  <app-characters
+    (handlePagination)="handlePagination($event)"
+    [characters]="characters"
+    [filters]="filters"
+  ></app-characters>
+</div>

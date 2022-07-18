@@ -1,0 +1,53 @@
+<div class="resourse-section" *ngIf="isVisible()">
+  <div class="table-tite">Characters</div>
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th>Name</th>
+        <th>Aliases</th>
+        <th>Played by</th>
+        <th>No. of books</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="
+          let character of characters
+            | paginate
+              : {
+                  id: 'characters',
+                  itemsPerPage: 10,
+                  currentPage: currentPage,
+                  totalItems: 2138
+                }
+        "
+        (click)="viewDetail(character)"
+      >
+        <td>{{ character.name }}</td>
+        <td>
+          <span
+            *ngFor="
+              let item of character.aliases;
+              let first = first;
+              let last = last
+            "
+          >
+            <span *ngIf="item; else elseblock"
+              >{{ item | uppercase }}{{ last ? " " : " ," }}
+            </span>
+            <ng-template #elseblock> -- </ng-template>
+          </span>
+        </td>
+        <td>{{ character.playedBy }}</td>
+        <td>{{ character.books.length }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="page" style="text-align: center">
+    <pagination-controls
+      class="my-pagination"
+      (pageChange)="getPage($event)"
+      id="characters"
+    ></pagination-controls>
+  </div>
+</div>

@@ -1,0 +1,94 @@
+<div style="text-align: center">
+  <div class="container">
+    <div class="row" style="text-align: left" *ngIf="character">
+      <div class="col-md-12">
+        <div class="resourse-detail">
+          <div class="resourse-header">
+            <p *ngIf="character.aliases && character.aliases.length > 0">
+              <span
+                *ngFor="
+                  let item of character.aliases;
+                  let first = first;
+                  let last = last
+                "
+              >
+                <span *ngIf="item; else elseblock"
+                  >{{ item | uppercase }}{{ last ? " " : " ," }}
+                </span>
+                <ng-template #elseblock> </ng-template>
+              </span>
+            </p>
+          </div>
+          <div class="resourse-body">
+            <div class="resourse-text">
+              <p *ngIf="character.name && character.name.length > 0">
+                Name: {{ character.name }}
+              </p>
+              <p *ngIf="character.culture && character.culture.length > 0">
+                Culture: {{ character.culture }}
+              </p>
+              <p *ngIf="character.died && character.died.length > 0">
+                Died: {{ character.died }}
+              </p>
+              <p *ngIf="character.gender && character.gender.length > 0">
+                Gender: {{ character.gender }}
+              </p>
+              <p *ngIf="character.playedBy && character.playedBy.length > 0">
+                Played By:
+                <span
+                  *ngFor="
+                    let item of character.playedBy;
+                    let first = first;
+                    let last = last
+                  "
+                >
+                  <span *ngIf="item; else elseblock"
+                    >{{ item }}{{ last ? " " : " ," }}
+                  </span>
+                  <ng-template #elseblock> -- </ng-template>
+                </span>
+              </p>
+
+              <p *ngIf="character.titles && character.titles.length > 0">
+                Titles:
+                <span
+                  *ngFor="
+                    let title of character.titles;
+                    let first = first;
+                    let last = last
+                  "
+                >
+                  <span *ngIf="title; else elseblock"
+                    >{{ title }}{{ last ? " " : " ," }}
+                  </span>
+                  <ng-template #elseblock> -- </ng-template>
+                </span>
+              </p>
+
+              <p *ngIf="character.tvSeries && character.tvSeries.length > 0">
+                TV Series:
+                <span
+                  *ngFor="
+                    let serie of character.tvSeries;
+                    let first = first;
+                    let last = last
+                  "
+                >
+                  <span *ngIf="serie; else elseblock"
+                    >{{ serie }}{{ last ? " " : " ," }}
+                  </span>
+                  <ng-template #elseblock> -- </ng-template>
+                </span>
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="home-link">
+              <a class="btn" [routerLink]="['/']"> Home </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+.filter-section {
+  display: flex;
+  > div {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    &:hover {
+      color: #a47757;
+    }
+  }
+  .active {
+    background-color: #8e7a6f;
+    color: white;
+    &:hover {
+        color: white;
+      }
+  }
+}

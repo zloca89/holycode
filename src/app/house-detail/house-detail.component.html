@@ -1,0 +1,100 @@
+<div class="resourse-detail">
+  <div class="container">
+    <div class="row" style="text-align: left" *ngIf="house">
+      <div class="col-md-12">
+        <div class="resourse">
+          <div class="resourse-header">
+            <p *ngIf="house.name != undefined && house.name.length > 0">
+              {{ house.name | uppercase }}
+            </p>
+          </div>
+          <div class="resourse-body">
+            <div class="resourse-text">
+              <p
+                *ngIf="
+                  house.ancestralWeapons != undefined &&
+                  house.ancestralWeapons.length > 0
+                "
+              >
+                Ancestral Weapons:
+                <span
+                  *ngFor="
+                    let item of house.ancestralWeapons;
+                    let first = first;
+                    let last = last
+                  "
+                >
+                  <span *ngIf="item; else elseblock"
+                    >{{ item }}{{ last ? " " : " ," }}
+                  </span>
+                  <ng-template #elseblock> -- </ng-template>
+                </span>
+              </p>
+
+              <p *ngIf="house.diedOut != undefined && house.diedOut.length > 0">
+                Died: {{ house.diedOut }}
+              </p>
+
+              <p
+                *ngIf="
+                  house.coatOfArms != undefined && house.coatOfArms.length > 0
+                "
+              >
+                Coat Of Arms: {{ house.coatOfArms }}
+              </p>
+
+              <p *ngIf="house.founded != undefined && house.founded.length > 0">
+                Founded: {{ house.founded }}
+              </p>
+
+              <p *ngIf="house.titles != undefined && house.titles.length > 0">
+                Titles:
+                <span
+                  *ngFor="
+                    let item of house.titles;
+                    let first = first;
+                    let last = last
+                  "
+                >
+                  <span *ngIf="item; else elseblock"
+                    >{{ item }}{{ last ? " " : " ," }}
+                  </span>
+                  <ng-template #elseblock> -- </ng-template>
+                </span>
+              </p>
+
+              <p *ngIf="house.region != undefined && house.region.length > 0">
+                Region: {{ house.region }}
+              </p>
+
+              <p *ngIf="house.seats != undefined && house.seats.length > 0">
+                Seats:
+                <span
+                  *ngFor="
+                    let item of house.seats;
+                    let first = first;
+                    let last = last
+                  "
+                >
+                  <span *ngIf="item; else elseblock"
+                    >{{ item }}{{ last ? " " : " ," }}
+                  </span>
+                  <ng-template #elseblock> -- </ng-template>
+                </span>
+              </p>
+
+              <p *ngIf="house.words != undefined && house.words.length > 0">
+                Words: {{ house.words }}
+              </p>
+            </div>
+            <div class="row">
+              <div class="home-link">
+                <a class="btn" [routerLink]="['/']"> Home </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

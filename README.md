@@ -6,22 +6,37 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Implementation
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Login
 
-## Build
+I implemented login using localStorage. I know it is not recomended to save sensitive data to local storage, but I did it just in purpose of the fake login.
+There is also register page, where user can register and use username and password for login.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Didn't have time to implement fake serer side login functionality with JWT token implementation.
 
-## Running unit tests
+authGuard is used for managing authentication with canActivate function.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Home page
 
-## Running end-to-end tests
+When user successufully login, home page is shown with list of the resourses. User can filter by category(Books, Houses, Characters). User can do a fuzzy search of all resources. 
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Pagination
 
-## Further help
+Because only 10 resourses is return by one page, I implemented paggination functionality.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Filter
+
+Filter is done in a way that user can choose multiple resourse types for filter without redirecting to the other page.
+
+## Fuzzy search
+
+I was using Fuse.js for implementing fuzzy search. 
+
+## Detail of resourse
+
+Clicking on the resourse in the table new page is opened with detail of the choosen resurse.
+
+## Test
+
+I didn't have time to implement integreation or end-to-end tests. As I saw, when I created components with Angular CLI, test file is added automatically with one default test for creation of the component. 

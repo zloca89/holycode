@@ -1,0 +1,38 @@
+<div class="resourse-section" *ngIf="isVisible()">
+  <div class="table-tite">Books</div>
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th>Name</th>
+        <th>number of pages</th>
+        <th>Released</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="
+          let book of books
+            | paginate
+              : {
+                  id: 'books',
+                  itemsPerPage: 10,
+                  currentPage: page,
+                  totalItems: 12
+                }
+        "
+        (click)="viewDetail(book)"
+      >
+        <td>{{ book.name }}</td>
+        <td>{{ book.numberOfPages }}</td>
+        <td>{{ book.released }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="page" style="text-align: center">
+    <pagination-controls
+      class="my-pagination"
+      (pageChange)="getPage($event)"
+      id="books"
+    ></pagination-controls>
+  </div>
+</div>
